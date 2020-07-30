@@ -22,17 +22,14 @@ let workoutSeed = [
   },
   {
     day: new Date().setDate(new Date().getDate()-9),
-    exercises: [
-      {
-        type: "resistance",
-        name: "Lateral Pull",
-        duration: 20,
-        weight: 300,
-        reps: 10,
-        sets: 4
-      }
-    ]
+    exercisesType: "resistance",
+    name: "Lateral Pull",
+    duration: 20,
+    weight: 300,
+    reps: 10,
+    sets: 4
   },
+  
   {
     day: new Date().setDate(new Date().getDate()-8),
     exercises: [
