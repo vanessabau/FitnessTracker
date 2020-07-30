@@ -1,6 +1,7 @@
 //This file offers a set of routes for sending users to various html pages
 
 //Dependencies
+
 var path = require("path");
 
 //Routes
