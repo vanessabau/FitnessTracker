@@ -12,7 +12,7 @@ router.get("/stats", (req, res) => {
 });
 
 //API ROUTES
-
+//Get all workouts
 router.get("/api/workouts", (req, res) => {
 	Exercise.find()
     .sort({ date: -1 })
@@ -25,6 +25,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
+//Get last workout
 router.get("/api/workouts/range", (req, res) => {
 	Exercise.findOne()
     //.sort({ date: -1 })
@@ -37,6 +38,7 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
+//Get workout by id
 router.get("/api/workouts/:id", (req, res) => {
 	Exercise.find(
 		{
