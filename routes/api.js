@@ -54,8 +54,9 @@ router.get("/api/workouts/:id", (req, res) => {
     });
 });
 
-router.post("/exercise", ({ body }, res) => {
-  Exercise.create(body)
+//Post NEW workout
+router.post("/api/workouts", ({ body }, res) => {
+  Exercise.insert(body)
     .then(dbExercise => {
       res.json(dbExercise);
     })
@@ -64,9 +65,9 @@ router.post("/exercise", ({ body }, res) => {
     });
 });
 
-router.get("/stats", (req, res) => {
-	console.log("stats!");
-	Exercise.exerciseModel.find({})
+//Update last workout
+router.put("/api/workouts", ({body}, res) => {
+	Exercise.updateOne(body)
 	.then(dbExercise =>{
 		res.json(dbExercise);
 	})
@@ -75,14 +76,17 @@ router.get("/stats", (req, res) => {
 	});
 });
 
-router.post("/api/exercise", ({ body }, res) => {
-  Exercise.create(body)
-    .then(dbExercise => {
-      res.json(dbExercise);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+//Update workout by id
+router.put("/api/workouts/:id", (req, res) =>{
+	Exercise.update({
+		_id: req.params.id
+	})
+	.then(dbExercise =>{
+		res.json(dbExercise);
+	})
+	.catch(err =>{
+		res.json(dbExercise);
+	});
 });
 
 
