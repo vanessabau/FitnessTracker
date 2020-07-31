@@ -2,17 +2,7 @@ const router = require("express").Router();
 const Exercise = require("../models/exerciseModel.js");
 const path = require("path");
 
-router.post("/api/exercise", ({ body }, res) => {
-  Exercise.create(body)
-    .then(dbExercise => {
-      res.json(dbExercise);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-});
-
-
+//HTML ROUTES
 router.get("/exercise", (req, res) => {
 	res.sendFile(path.join(__dirname, "../public/exercise.html"));
 });
@@ -21,8 +11,22 @@ router.get("/stats", (req, res) => {
 	res.sendFile(path.join(__dirname, "../public/stats.html"));
 });
 
-router.get("/api/stats", (req, res) => {
+//API ROUTES
+
+router.get("/api/workouts", (req, res) => {
 	Exercise.find()
+    .sort({ date: -1 })
+    .then(dbExercise => {
+			console.log(dbExercise);
+      res.json(dbExercise);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
+router.get("/api/workouts/range", (req, res) => {
+	Exercise.findOne()
     //.sort({ date: -1 })
     .then(dbExercise => {
 			console.log(dbExercise);
@@ -52,7 +56,17 @@ router.get("/stats", (req, res) => {
 	.catch(err =>{
 		res.json(err);
 	});
-})
+});
+
+router.post("/api/exercise", ({ body }, res) => {
+  Exercise.create(body)
+    .then(dbExercise => {
+      res.json(dbExercise);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
 
 
 module.exports = router;
