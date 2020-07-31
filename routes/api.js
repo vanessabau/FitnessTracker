@@ -65,7 +65,7 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 
-//Update last workout
+// //Update last workout
 router.put("/api/workouts", ({body}, res) => {
 	Exercise.updateOne(body)
 	.then(dbExercise =>{
@@ -76,7 +76,7 @@ router.put("/api/workouts", ({body}, res) => {
 	});
 });
 
-//Update workout by id
+// //Update workout by id
 router.put("/api/workouts/:id", (req, res) =>{
 	Exercise.update({
 		_id: req.params.id
@@ -85,7 +85,7 @@ router.put("/api/workouts/:id", (req, res) =>{
 		res.json(dbExercise);
 	})
 	.catch(err =>{
-		res.json(dbExercise);
+		res.json(err);
 	});
 });
 

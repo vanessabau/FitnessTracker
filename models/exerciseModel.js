@@ -8,36 +8,37 @@ const ExerciseSchema = new Schema({
 		default: Date.now
 	}, 
 
-	exercisesType: {
-				type: String,
-				trim: true,
-	},
+	exercisesType: [
+	// 	{
+	// 			type: String,
+	// 			trim: true,
+	// 	},
 
-	name: {
-				type: String,
-				trim: true,
-	},
+	// name: {
+	// 			type: String,
+	// 			trim: true,
+	// },
 
-	duration: {
-				type: Number
-	},
+	// duration: {
+	// 			type: Number
+	// },
 
-	distance: {
-				type: Number
-	},
+	// distance: {
+	// 			type: Number
+	// },
 
-	weight: {
-				type: Number
-	},
+	// weight: {
+	// 			type: Number
+	// },
 
-	reps: {
-				type: Number
-	},
+	// reps: {
+	// 			type: Number
+	// },
 
-	sets: {
-				type: Number
-	}
-
+	// sets: {
+	// 			type: Number
+	// }
+	]
 });
 
 //include collection name here
