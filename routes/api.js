@@ -37,6 +37,21 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
+router.get("/api/workouts/:id", (req, res) => {
+	Exercise.find(
+		{
+			_id: req.params.id
+		})
+    .sort({ date: -1 })
+    .then(dbExercise => {
+			console.log(dbExercise);
+      res.json(dbExercise);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 router.post("/exercise", ({ body }, res) => {
   Exercise.create(body)
     .then(dbExercise => {
