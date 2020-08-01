@@ -14,7 +14,7 @@ router.get("/stats", (req, res) => {
 //API ROUTES
 //Get all workouts
 router.get("/api/workouts", (req, res) => {
-	Exercise.find()
+	Exercise.find({})
     //.sort({ date: -1 })
     .then(dbExercise => {
 			console.log("get /api/workouts" + dbExercise);
@@ -56,10 +56,10 @@ router.get("/api/workouts/:id", (req, res) => {
 });
 
 //Post NEW workout
-router.post("/api/workouts", ({ body }, res) => {
-  Exercise.create(body)
-    .then(dbExercise => {
-      res.json(dbExercise);
+router.post("/api/workouts", (req, res) => {
+  Exercise.create({})
+    .then(dbWorkout => {
+      res.json(dbWorkout);
     })
     .catch(err => {
       res.json(err);
@@ -78,16 +78,19 @@ router.put("/api/workouts", ({body}, res) => {
 });
 
 // //Update workout by id
-router.put("/api/workouts/:id", (req, res) =>{
-	Exercise.update({
-		_id: req.params.id
-	})
-	.then(dbExercise =>{
-		res.json(dbExercise);
-	})
-	.catch(err =>{
-		res.json(err);
-	});
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+  Exercise.findByIdAndUpdate(
+    params.id,
+    { $push: { exercises: body } },
+    // "runValidators" will ensure new exercises meet our schema requirements
+    { new: true, runValidators: true }
+  )
+    .then(dbWorkout => {
+      res.json(dbWorkout);
+    })
+    .catch(err => {
+      res.json(err);
+    });
 });
 
 
