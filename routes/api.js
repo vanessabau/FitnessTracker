@@ -27,9 +27,11 @@ router.get("/api/workouts", (req, res) => {
 
 //Get last workout
 router.get("/api/workouts/range", (req, res) => {
-	Exercise.find({}).limit(7)
+	Exercise.find({})
+		.sort({_id:1})
+		.limit(7)
+		.populate("exercises")
     .then(dbExercise => {
-			console.log("get /api/workouts/range"+dbExercise);
       res.json(dbExercise);
     })
     .catch(err => {

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const morgan = require("morgan");
 
 //Set up PORT
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3020;
 
 //Use express
 const db = require("./models/exerciseModel.js")
