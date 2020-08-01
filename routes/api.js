@@ -15,9 +15,9 @@ router.get("/stats", (req, res) => {
 //Get all workouts
 router.get("/api/workouts", (req, res) => {
 	Exercise.find()
-    .sort({ date: -1 })
+    //.sort({ date: -1 })
     .then(dbExercise => {
-			console.log(dbExercise);
+			console.log("get /api/workouts" + dbExercise);
       res.json(dbExercise);
     })
     .catch(err => {
@@ -27,10 +27,9 @@ router.get("/api/workouts", (req, res) => {
 
 //Get last workout
 router.get("/api/workouts/range", (req, res) => {
-	Exercise.findOne()
-    //.sort({ date: -1 })
+	Exercise.find({}).limit(7)
     .then(dbExercise => {
-			console.log(dbExercise);
+			console.log("get /api/workouts/range"+dbExercise);
       res.json(dbExercise);
     })
     .catch(err => {
@@ -44,8 +43,8 @@ router.get("/api/workouts/:id", (req, res) => {
 		{
 			_id: req.params.id
 		})
-    .sort({ date: -1 })
     .then(dbExercise => {
+			console.log("api line 51");
 			console.log(dbExercise);
       res.json(dbExercise);
     })

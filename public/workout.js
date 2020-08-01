@@ -1,6 +1,6 @@
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
-  console.log("Last workout:", lastWorkout);
+  console.log("Workout.js:3 Last workout:", lastWorkout);
   if (lastWorkout) {
     document
       .querySelector("a[href='/exercise?']")
@@ -63,7 +63,8 @@ function renderWorkoutSummary(summary) {
 
     strong.textContent = workoutKeyMap[key];
     const textNode = document.createTextNode(`: ${summary[key]}`);
-
+		console.log(summary[key]+"sum key");
+		
     p.appendChild(strong);
     p.appendChild(textNode);
 
