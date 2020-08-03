@@ -10,9 +10,9 @@ A Node, Express, Mongo DB, Mongoose application that allows users to log their w
 ## TABLE OF CONTENTS
 1. [Installation](###Installation)
 2. [Useage](###Useage)
-3. [UserStory] (###User Story)
-4. [BusinessContext] (###Business Context)
-5. [AcceptanceCriteria] (###Acceptance Criteria)
+3. [UserStory](###User Story)
+4. [BusinessContext](###Business Context)
+5. [AcceptanceCriteria](###Acceptance Criteria)
 6. [Licensing](###Licensing)
 7. [Contributors](###Contributors)
 8. [Tests](###Testing)
