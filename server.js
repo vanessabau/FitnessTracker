@@ -32,6 +32,7 @@ mongoose.connect(workoutDb, {useNewUrlParser: true, useFindAndModify: false})
 //Routes
 app.use(require("./routes/api.js"));
 
+//Post connected and listening
 app.listen(PORT, () =>{
 	console.log(`Running on port ${PORT}`)
 });

@@ -1,7 +1,10 @@
+//Dependencies
 const mongoose = require("mongoose");
 
+//Create new schema
 const Schema = mongoose.Schema;
 
+//Create model
 const ExerciseSchema = new Schema(
 	{
 		day: {
@@ -47,7 +50,7 @@ const ExerciseSchema = new Schema(
 	}
 });
 
-// adds a dynamically-created property to schema
+//Adds a dynamically-created property to schema
 ExerciseSchema.virtual("totalDuration").get(function () {
   // “reduce” array of exercises down to just the sum of their durations
   return this.exercises.reduce((total, exercise) => {
@@ -55,6 +58,6 @@ ExerciseSchema.virtual("totalDuration").get(function () {
   }, 0);
 });
 
-//include collection name here
+//Export model and include collection name (exCollections) here
 const Exercise = mongoose.model("exCollections", ExerciseSchema);
 module.exports = Exercise;

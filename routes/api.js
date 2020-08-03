@@ -1,3 +1,4 @@
+//Dependencies
 const router = require("express").Router();
 const Exercise = require("../models/exerciseModel.js");
 const path = require("path");
@@ -15,7 +16,6 @@ router.get("/stats", (req, res) => {
 //Get all workouts
 router.get("/api/workouts", (req, res) => {
 	Exercise.find({})
-    //.sort({ date: -1 })
     .then(dbExercise => {
 			console.log("get /api/workouts" + dbExercise);
       res.json(dbExercise);
@@ -25,7 +25,7 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-//Get last workout
+//Get a weeks worth of workouts for the Dashboard page
 router.get("/api/workouts/range", (req, res) => {
 	Exercise.find({})
 		.sort({_id:1})
@@ -39,7 +39,7 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-//Get workout by id
+//Get workout by id used to get last workout
 router.get("/api/workouts/:id", (req, res) => {
 	Exercise.find(
 		{
