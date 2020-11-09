@@ -22,7 +22,8 @@ app.use(express.static("public"));
 
 //Connect to mongo database
 let workoutDb = process.env.MONGODB_URI || "mongodb://localhost/workout";
-mongoose.connect(workoutDb, {useNewUrlParser: true, useFindAndModify: false})
+mongoose.connect(workoutDb, {useNewUrlParser: true,  useUnifiedTopology: true,
+       useCreateIndex: true, useFindAndModify: false})
 .then(()=>{
 	console.log("connected to mongo");
 }).catch((err) =>{
