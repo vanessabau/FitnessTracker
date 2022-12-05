@@ -6,7 +6,7 @@ A Node, Express, Mongo DB, Mongoose application that allows users to log their w
 ## GITHUB USER: vanessabau
 ## GITHUB EMAIL: vbautista916@icloud.com
 # ![vanessabau](https://avatars2.githubusercontent.com/u/59780981?v=4)
-## Link to application deployed on Heroku: https://nameless-beyond-37127.herokuapp.com/?id=5f288701c4ce6a0017de6619
+## DEPLOYED APPLICATION: https://fitness-tracker-vanessabau.vercel.app/
 ## TABLE OF CONTENTS
 1. [Installation](###Installation)
 2. [Useage](###Useage)
